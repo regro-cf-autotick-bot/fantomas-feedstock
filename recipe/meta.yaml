@@ -1,5 +1,5 @@
 {% set name = "fantomas" %}
-{% set version = "6.3.5" %}
+{% set version = "6.3.15" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/fsprojects/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 96ab47a99420ddf2bbf1d288c9a86ee98723c3bbfd587abd8f6121a7a3d3b594
+  sha256: 02299641692f9d9b2574037c8d8e8e76c691feb8b7c21179798f606d2d3b71ee
 
 build:
   noarch: generic
