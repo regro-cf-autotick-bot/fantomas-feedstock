@@ -4,6 +4,7 @@ set -o xtrace -o nounset -o pipefail -o errexit
 
 mkdir -p ${PREFIX}/bin
 mkdir -p ${PREFIX}/libexec/${PKG_NAME}
+ln -sf ${DOTNET_ROOT}/dotnet ${PREFIX}/bin
 
 # Build package with dotnet publish
 rm -rf global.json
@@ -15,6 +16,7 @@ tee ${PREFIX}/bin/fantomas << EOF
 #!/bin/sh
 exec \${DOTNET_ROOT}/dotnet exec \${CONDA_PREFIX}/libexec/fantomas/fantomas.dll "\$@"
 EOF
+chmod + x ${PREFIX}/bin/fantomas
 
 tee ${PREFIX}/bin/fantomas.cmd << EOF
 call %DOTNET_ROOT%\dotnet exec %CONDA_PREFIX%\libexec\fantomas\fantomas.dll %*

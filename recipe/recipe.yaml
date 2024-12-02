@@ -1,17 +1,17 @@
-{% set name = "fantomas" %}
-{% set version = "6.3.16" %}
+context:
+  version: 6.3.16
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: fantomas
+  version: ${{ version }}
 
 source:
-  url: https://github.com/fsprojects/{{ name }}/archive/v{{ version }}.tar.gz
+  url: https://github.com/fsprojects/fantomas/archive/v${{ version }}.tar.gz
   sha256: a825f4135ec8b68f3b6df3106bead149cd8f1ce9ce5e1f509b7deb64941cc1c7
 
 build:
-  noarch: generic
   number: 0
+  noarch: generic
 
 requirements:
   host:
@@ -20,18 +20,18 @@ requirements:
   run:
     - dotnet
 
-test:
-  commands:
-    - fantomas --help
+tests:
+  - script:
+      - fantomas --help
 
 about:
-  home: https://fsprojects.github.io/fantomas
   license: Apache-2.0
   license_file:
     - LICENSE.md
     - license-files/
   summary: FSharp source code formatter
-  dev_url: https://github.com/fsprojects/{{ name }}
+  homepage: https://fsprojects.github.io/fantomas
+  repository: https://github.com/fsprojects/fantomas
 
 extra:
   recipe-maintainers:
